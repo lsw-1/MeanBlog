@@ -1,0 +1,24 @@
+{
+  "name": "blogg2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ludwigSW/blogg2.git"
+  },
+  "author": "Ludwig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ludwigSW/blogg2/issues"
+  },
+  "homepage": "https://github.com/ludwigSW/blogg2#readme"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "blogg2",
+  "homepage": "https://github.com/ludwigSW/blogg2",
+  "authors": [
+    "LudwigSW <ludwig_wiren@hotmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {}
+}
