@@ -1,25 +1,25 @@
 /**
  * Created by ludwi_000 on 3/30/2016.
  */
-angular.module('blogg').service('dataService', function ($http) {
+angular.module('blogg').service('dataService', function ($http, $q) {
 
         this.getAllPosts = function (callback) {
-            $http.get('../mock/data.json').then(callback);
+            $http.get('/api/posts').then(callback);
         };
 
-        this.addthePost = function (selectedpost) {
-            console.log(selectedpost + " has been added");
-            $http.post('json/data.json')
+        this.addThePost = function (post) {
+            console.log(post + " has been added");
+            $http.post('/api/posts', post);
         };
 
-        this.deletePost = function (selectedpost) {
-            console.log(selectedpost + " has been deleted");
-            $http.delete()
+        this.deletePost = function (id) {
+            console.log(id + " has been deleted");
+            $http.delete('/api/posts/' + id)
         };
 
-        this.editPost = function (selectedpost) {
-            console.log(selectedpost + " has been edited");
-            $http.delete()
+        this.editPost = function (post, id) {
+            console.log(" UPDATED ")
+            $http.put('/api/posts/' + id)
         };
 
         this.showPost = function () {

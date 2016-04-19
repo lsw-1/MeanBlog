@@ -3,25 +3,33 @@
  */
 "use strict";
 
-angular.module('blogg').controller('mainCtrl', function ($scope, dataService) {
+angular.module('blogg').controller('mainCtrl', function ($scope, dataService ) {
 
     dataService.getAllPosts(function (response) {
-        $scope.posts = response.data;
+        var posts = response.data.posts;
+        $scope.posts = posts;
     });
     
+   
     $scope.addPost = function () {
-        var thepost = {
+        var post = {
             title: $scope.post.title,
             text: $scope.post.text,
             date: Date.now(),
             author: "Ludwig"
         };  
-        $scope.posts.unshift(thepost);
+        dataService.addThePost(post);
         $scope.newpost = false;
     };
 
     
-    $scope.deleteAPost = function () {
+    $scope.deletePost = function (index) {  
+        var post = $scope.posts[index];
+        var id = post._id
+        dataService.deletePost(id)
+    }
+    
+    $scope.editPost = function () {
         
     }
 
