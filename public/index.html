@@ -8,48 +8,45 @@
 </head>
 
 <body>
-<nav>
-    <div id="header">
-        <h1>Bloggen</h1>
+
+<div ng-controller="mainCtrl">
+    <navs></navs>
+
+    <div id="main-content">
+
+        <div ng-switch="page">
+            <div ng-switch-when="home">
+                <ng-include src="'templates/home.html'"></ng-include>
+            </div>
+
+            <div ng-switch-when="blog">
+                <blog></blog>
+            </div>
+
+            <div ng-switch-when="about">
+                <ng-include src="'templates/about.html'"></ng-include>
+            </div>
+
+            <div ng-switch-default="home">
+                <ng-include src="'templates/home.html'"></ng-include>
+            </div>
+        </div>
     </div>
-    <ul>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Diverse</li>
-    </ul>
-</nav>
-<div id="main-content" ng-controller="mainCtrl">
-    <button class="new-post" ng-click="newpost = !newpost">New Post</button>
-
-    <!--SEARCH BY TITLE-->
-    <div class="filters">
-        <a href="" ng-hide="searchtitle" ng-click="searchtitle = true">Search Blog Post</a>
-        <input ng-blur="searchtitle = false" ng-show="searchtitle" type="search" ng-model="data.search" placeholder="Search by title">
-    </div>
-
-    <h3>All posts</h3>
-    <!-- NEW POST-->
-    <div class="new-text" ng-show="newpost">
-        <input type="text" placeholder="title" ng-model="post.title">
-        <textarea name="" id="" cols="30" rows="10" ng-model="post.text"></textarea>
-        <input type="submit" value="Submit Post" ng-click="addPost()">
-    </div>
-
-
-    <posts></posts>
-
 
 </div>
 
 <footer>
     <p>Copyright of ludwigstralewiren.com</p>
 </footer>
-
+<!--////////////////////////\\\\\\\\\\\\\\    ANGULAR    ////////////////////////\\\\\\\\\\\\\\-->
 <script src="/vendor/angular.js"></script>
-    <script src="/scripts/app.js" type="text/javascript"></script>
+<!--////////////////////////\\\\\\\\\\\\\\    MVC    ////////////////////////\\\\\\\\\\\\\\-->
+<script src="/scripts/app.js" type="text/javascript"></script>
 <script src="/scripts/services/service.js"></script>
 <script src="/scripts/controllers/controller.js" type="text/javascript"></script>
-<script src="/scripts/directives/posts.js"></script>
-</body>
+<script src="/scripts/directives/blog.js"></script>
+<script src="/scripts/directives/nav.js"></script>
 
+
+</body>
 </html>

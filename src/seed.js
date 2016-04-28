@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 var Post = require('./models/posts');
@@ -12,4 +13,4 @@ posts.forEach(function (post, index) {
             Post.create({author: "Ludwig", date: Date.now(), title: post, text: " BLALASVBDXCSDA"})
         }
     })
-});
+});*/

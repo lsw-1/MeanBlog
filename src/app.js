@@ -10,7 +10,7 @@ var app = express();
 
 require('./database');
 
-require('./seed');
+// require('./seed');
 
 app.use('/', express.static('../public'));
 

@@ -16,6 +16,15 @@ router.get('/posts', function (req, res) {
     })
 });
 
+router.get('/posts/:post_id', function (req, res) {
+        Post.findById(req.params.post_id, function(err, post) {
+            if (err)
+                res.send(err);
+            res.json(post);
+        });
+
+});
+
 router.post('/posts', function (req, res) {
     var post = req.body;
     Post.create(post, function (err, post) {
@@ -27,8 +36,8 @@ router.post('/posts', function (req, res) {
 
 });
 
-router.put('/posts/:id', function (req, res) {
-    var id = req.params.id;
+router.put('/posts/:post_id', function (req, res) {
+    var id = req.params.post_id;
     var post = req.body;
 
     if(post && post._id !== id){
@@ -43,10 +52,14 @@ router.put('/posts/:id', function (req, res) {
 
 });
 
-router.delete('/posts/:id', function (req, res) {
-   var id = req.params.id;  
-    Post.findByIdAndRemove(id)
-
+router.delete('/posts/:post_id', function (req, res) {
+        Post.remove({
+            _id: req.params.post_id
+        }, function(err, post) {
+            if (err)
+                res.send(err);
+            res.json({ message: 'Successfully deleted' });
+        });
 });
 
 
